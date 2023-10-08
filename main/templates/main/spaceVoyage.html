@@ -21,37 +21,39 @@
         }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
+        document.addEventListener("DOMContentLoaded", function() {
             function createPopup(id) {
                 let popupNode = document.querySelector(id);
                 let overlay = popupNode.querySelector(".overlay");
                 let closeBtn = popupNode.querySelector(".close-btn");
                 let submitBtn = popupNode.querySelector(".submit-btn");
-            
+        
                 function openPopup() {
-                    popupNode.classList.add("active");
+                    popupNode.style.display = "block";
                 }
-            
+        
                 function closePopup() {
-                    popupNode.classList.remove("active");
+                    popupNode.style.display = "none";
                 }
-            
+        
                 function submitForm() {
                     let fullName = document.getElementById("full-name").value;
                     let email = document.getElementById("email").value;
+                    // You can add your form submission logic here
                     closePopup();
                 }
-            
+        
                 overlay.addEventListener("click", closePopup);
                 closeBtn.addEventListener("click", closePopup);
                 submitBtn.addEventListener("click", submitForm);
-            
+        
                 return openPopup;
             }
-            
+        
             let popup = createPopup("#popup");
             document.querySelector("#open-popup").addEventListener("click", popup);
-        })
+        });
+        
     </script>
 </head>
 
@@ -240,7 +242,7 @@
             </div>
 
             <div class="card" style="width: 18rem;">
-                <img src="{% url 'saturn' %}" class="card-img-top img-planet" alt="img" >
+                <img src="{% static 'main/saturn.gif' %}" class="card-img-top img-planet" alt="img" >
                 <div class="card-body">
                     <h5 class="card-title" style="color: azure; font-size:x-large; font-weight:700">Saturn</h5>
                     <p class="card-text">
